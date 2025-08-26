@@ -1,2 +1,0 @@
-# fzg
-Filicori Zecchini Georgia
