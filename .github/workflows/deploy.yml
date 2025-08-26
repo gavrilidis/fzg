@@ -32,6 +32,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           # Пароль FTP из GitHub Secrets
           password: ${{ secrets.FTP_PASSWORD }}
+          options: '--disable-epsv'
 
           # --- Ключевые параметры путей ---
 
