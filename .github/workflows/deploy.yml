@@ -1,0 +1,23 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main  # ветка, по которой будет происходить деплой
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}
+          dry-run: false
