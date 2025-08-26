@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filicori Zecchini - Italian Excellence in Every Cup</title>
-    <meta http-equiv="refresh" content="0; url=/en/home">
+    <title>Filicori Zecchini Georgia</title>
+    <script>
+        // Функция для перенаправления
+        function redirectUser() {
+            // Получаем язык браузера (например, "ka-GE", "en-US", "ru")
+            const userLang = navigator.language || navigator.userLanguage; 
+
+            // Проверяем, является ли язык грузинским
+            if (userLang.startsWith('ka')) {
+                // Если да, перенаправляем на грузинскую версию
+                window.location.replace('/ka/index.html');
+            } else {
+                // Во всех остальных случаях (английский, русский, немецкий и т.д.)
+                // перенаправляем на английскую версию по умолчанию
+                window.location.replace('/en/index.html');
+            }
+        }
+
+        // Вызываем функцию сразу при загрузке страницы
+        redirectUser();
+    </script>
+    <style>
+        /* Стиль для страницы-заглушки, если редирект вдруг не сработает */
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="/en/home">English version</a>...</p>
+    <p>Loading...</p>
 </body>
 </html>
