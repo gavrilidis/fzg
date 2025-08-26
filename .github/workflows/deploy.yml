@@ -1,23 +1,57 @@
-name: FTP Deploy
+# Имя рабочего процесса, которое будет отображаться в GitHub Actions
+name: Deploy to FTP Hosting
 
+# Триггер для запуска: срабатывает при пуше в ветку 'main'
 on:
   push:
     branches:
-      - main
+      - main  # или master, в зависимости от вашей основной ветки
 
+# Задачи, которые будут выполняться
 jobs:
-  ftp-deploy:
+  deploy:
+    # Имя задачи
+    name: Deploy Website Files
+    # Запускать на последней версии Ubuntu
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      # Шаг 1: Клонирование репозитория
+      # Этот шаг обязателен, чтобы Action имел доступ к вашему коду
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Шаг 2: Деплой на FTP
+      # Используем проверенный экшен SamKirkland/FTP-Deploy-Action
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
+          # Адрес вашего FTP-сервера из GitHub Secrets
           server: ${{ secrets.FTP_HOST }}
+          # Имя пользователя FTP из GitHub Secrets
           username: ${{ secrets.FTP_USERNAME }}
+          # Пароль FTP из GitHub Secrets
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "filicorizecchini.ge/www/"
-          server-dir: ""
-          dry-run: false
-        env:
-          ARGS: --delete
+
+          # --- Ключевые параметры путей ---
+
+          # Локальная папка в репозитории, которую нужно загрузить.
+          # Точка и слэш в начале (./) явно указывают на путь от корня репозитория.
+          local-dir: ./filicorizecchini.ge/www/
+          
+          # Папка на сервере, куда будут загружены файлы.
+          # Путь относительный от домашней директории FTP-пользователя.
+          server-dir: filicorizecchini.ge/www/
+
+          # --- Дополнительные полезные опции ---
+          
+          # Удалять файлы на сервере, которых нет в репозитории.
+          # Включите, если хотите полную синхронизацию (осторожно!).
+          # По умолчанию: false. Раскомментируйте, если нужно.
+          # dangerous-clean-slate: true
+
+          # Исключить определенные файлы или папки (например, сам workflow)
+          # exclude: |
+          #   **/.git*
+          #   **/.git*/**
+          #   .github/**
