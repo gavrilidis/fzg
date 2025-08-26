@@ -23,6 +23,8 @@ jobs:
 
       # Шаг 2: Деплой на FTP
       # Используем проверенный экшен SamKirkland/FTP-Deploy-Action
+      - name: List files in the repository
+        run: ls -R
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
