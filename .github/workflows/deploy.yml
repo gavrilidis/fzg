@@ -32,7 +32,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           # Пароль FTP из GitHub Secrets
           password: ${{ secrets.FTP_PASSWORD }}
-          options: '--disable-epsv'
+          # Разрешает небезопасные FTP-соединения, что часто решает проблему ECONNRESET
+          security: 'loose'
 
           # --- Ключевые параметры путей ---
 
