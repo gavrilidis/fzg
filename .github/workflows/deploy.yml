@@ -8,17 +8,16 @@ on:
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./"
-          server-dir: "filicorizecchini.ge/www/"
+          local-dir: "filicorizecchini.ge/www/"
+          server-dir: ""
           dry-run: false
+        env:
+          ARGS: --delete
