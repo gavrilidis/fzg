@@ -20,5 +20,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "filicorizecchini.ge/www/"
-          server-dir: ""
+          server-dir: "filicorizecchini.ge/www/"
           dry-run: false
