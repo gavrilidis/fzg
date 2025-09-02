@@ -137,3 +137,25 @@ function getText(key) {
     
     return translations[currentLang][key] || key;
 }
+
+// Mobile menu toggle function
+function toggleMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        navLinks.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+    }
+}
+
+// Close mobile menu when clicking on a link
+function closeMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+    }
+}

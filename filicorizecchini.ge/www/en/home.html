@@ -18,13 +18,18 @@
             <a href="home.html" class="logo">
                 <img src="../logo.png" alt="Filicori Zecchini" class="logo-img">
             </a>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="rental.html">Machine Rental</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="order.html">Order</a></li>
+                <li><a href="home.html" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="about.html" onclick="closeMobileMenu()">About Us</a></li>
+                <li><a href="products.html" onclick="closeMobileMenu()">Products</a></li>
+                <li><a href="rental.html" onclick="closeMobileMenu()">Machine Rental</a></li>
+                <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+                <li><a href="order.html" onclick="closeMobileMenu()">Order</a></li>
             </ul>
             <button class="language-switch" onclick="window.location.href='/ka/home'">Switch to Georgian</button>
         </nav>
