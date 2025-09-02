@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>შეკვეთა და ფასის მოთხოვნა - Filicori Zecchini საქართველო</title>
     <meta name="description" content="შეუკვეთეთ ყავის აღჭურვილობა, მოითხოვეთ ფასები ან გაიგეთ არენდის სერვისების შესახებ. მიიღეთ პერსონალიზებული ფასები და ექსპერტი კონსულტაცია">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +15,9 @@
     <!-- Header Section -->
     <header class="header">
         <nav class="nav container">
-            <a href="home.html" class="logo">Filicori Zecchini</a>
+            <a href="home.html" class="logo">
+                <img src="../logo.png" alt="Filicori Zecchini" class="logo-img">
+            </a>
             <ul class="nav-links">
                 <li><a href="home.html">მთავარი</a></li>
                 <li><a href="about.html">ჩვენს შესახებ</a></li>
@@ -42,14 +45,14 @@
     <section class="section" id="order-types">
         <div class="container">
             <h2>რისი შეკვეთა გსურთ?</h2>
-            <div class="cards-grid">
+            <div class="cards-grid cards-grid-4">
                 <div class="card">
                     <div class="card-image">
                         <span>აღჭურვილობა<br>300x300</span>
                     </div>
                     <h3>აღჭურვილობის შეძენა</h3>
                     <p>შეიძინეთ ყავის მანქანები, მფქვავები და აქსესუარები თქვენი ბიზნესის ან სახლის გამოყენებისთვის. ჩვენ გთავაზობთ კონკურენტულ ფასებს და ყოვლისმომცველ მხარდაჭერას.</p>
-                    <a href="#purchase-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">ფასის მოთხოვნა</a>
+                    <a href="#universal-form?service=purchase" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">ფასის მოთხოვნა</a>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -57,7 +60,7 @@
                     </div>
                     <h3>აღჭურვილობის არენდა</h3>
                     <p>მოქნილი არენდის ვარიანტები ღონისძიებებისთვის, დროებითი საჭიროებებისთვის ან შეძენამდე ტესტირებისთვის. პროფესიული დაყენება და მოვლა ჩართულია.</p>
-                    <a href="#rental-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">არენდის მოთხოვნა</a>
+                    <a href="#universal-form?service=rental" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">არენდის მოთხოვნა</a>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -65,7 +68,7 @@
                     </div>
                     <h3>სერვისი და მოვლა</h3>
                     <p>პროფესიული მოვლა, შეკეთება და ტექნიკური მხარდაჭერა თქვენი არსებული ყავის აღჭურვილობისთვის.</p>
-                    <a href="#service-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">სერვისის მოთხოვნა</a>
+                    <a href="#universal-form?service=service" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">სერვისის მოთხოვნა</a>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -73,274 +76,208 @@
                     </div>
                     <h3>ტრენინგი და კონსულტაცია</h3>
                     <p>ბარისტების ტრენინგი, აღჭურვილობის კონსულტაცია და ბიზნესის განვითარების სერვისები თქვენი ყავის ოპერაციის მაქსიმიზაციისთვის.</p>
-                    <a href="#training-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">ტრენინგის მოთხოვნა</a>
+                    <a href="#universal-form?service=training" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">ტრენინგის მოთხოვნა</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Purchase Equipment Form -->
-    <section class="section" id="purchase-form">
+    <!-- Universal Quote Request Form -->
+    <section class="section" id="universal-form">
         <div class="container">
-            <h2>აღჭურვილობის შეძენა - ფასის მოთხოვნა</h2>
+            <h2>ფასის მოთხოვნა</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--gray-olive);">გვითხარით რა გჭირდებათ და ჩვენ მოგცემთ პერსონალიზებულ ფასს</p>
+            
             <div class="contact-form">
-                <form id="purchaseForm" class="order-form">
-                    <div class="form-group">
-                        <label for="purchase-name">სრული სახელი *</label>
-                        <input type="text" id="purchase-name" name="name" required>
+                <form id="universalForm" class="order-form">
+                    <!-- Basic Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">სრული სახელი *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">ელ-ფოსტის მისამართი *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="purchase-email">ელ-ფოსტის მისამართი *</label>
-                        <input type="email" id="purchase-email" name="email" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">ტელეფონის ნომერი *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">კომპანია/ორგანიზაცია</label>
+                            <input type="text" id="company" name="company">
+                        </div>
                     </div>
                     
+                    <!-- Service Type Selection -->
                     <div class="form-group">
-                        <label for="purchase-phone">ტელეფონის ნომერი *</label>
-                        <input type="tel" id="purchase-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-company">კომპანია/ორგანიზაცია</label>
-                        <input type="text" id="purchase-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-equipment">აღჭურვილობის ტიპი *</label>
-                        <select id="purchase-equipment" name="equipment" required>
-                            <option value="">აირჩიეთ აღჭურვილობის ტიპი</option>
-                            <option value="espresso-machine">ესპრესო მანქანა</option>
-                            <option value="coffee-grinder">ყავის მფქვავი</option>
-                            <option value="filter-coffee">ფილტრის ყავის აღჭურვილობა</option>
-                            <option value="accessories">აქსესუარები და ნაწილები</option>
-                            <option value="complete-setup">სრული ყავის დაყენება</option>
-                            <option value="other">სხვა</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-budget">ბიუჯეტის დიაპაზონი</label>
-                        <select id="purchase-budget" name="budget">
-                            <option value="">აირჩიეთ ბიუჯეტის დიაპაზონი</option>
-                            <option value="under-1000">$1,000-ზე ნაკლები</option>
-                            <option value="1000-5000">$1,000 - $5,000</option>
-                            <option value="5000-10000">$5,000 - $10,000</option>
-                            <option value="10000-25000">$10,000 - $25,000</option>
-                            <option value="over-25000">$25,000-ზე მეტი</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-timeline">შეძენის ვადა</label>
-                        <select id="purchase-timeline" name="timeline">
-                            <option value="">აირჩიეთ ვადა</option>
-                            <option value="immediate">მყისიერი (30 დღის განმავლობაში)</option>
-                            <option value="1-3-months">1-3 თვე</option>
-                            <option value="3-6-months">3-6 თვე</option>
-                            <option value="6-12-months">6-12 თვე</option>
-                            <option value="flexible">მოქნილი</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-details">კონკრეტული მოთხოვნები</label>
-                        <textarea id="purchase-details" name="details" rows="4" placeholder="გთხოვთ აღწეროთ თქვენი კონკრეტული საჭიროებები, სასურველი ბრენდები, ფუნქციები ან სხვა მოთხოვნები..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">შეძენის ფასის მოთხოვნა</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rental Inquiry Form -->
-    <section class="section" id="rental-form">
-        <div class="container">
-            <h2>აღჭურვილობის არენდა - მოთხოვნის ფორმა</h2>
-            <div class="contact-form">
-                <form id="rentalForm" class="order-form">
-                    <div class="form-group">
-                        <label for="rental-name">სრული სახელი *</label>
-                        <input type="text" id="rental-name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-email">ელ-ფოსტის მისამართი *</label>
-                        <input type="email" id="rental-email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-phone">ტელეფონის ნომერი *</label>
-                        <input type="tel" id="rental-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-company">კომპანია/ორგანიზაცია</label>
-                        <input type="text" id="rental-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-purpose">არენდის მიზანი *</label>
-                        <select id="rental-purpose" name="purpose" required>
-                            <option value="">აირჩიეთ არენდის მიზანი</option>
-                            <option value="event">სპეციალური ღონისძიება</option>
-                            <option value="temporary">დროებითი ბიზნესის დაყენება</option>
-                            <option value="testing">შეძენამდე ტესტირება</option>
-                            <option value="backup">სათადარიგო აღჭურვილობა</option>
-                            <option value="renovation">რენოვაციის დროს</option>
-                            <option value="other">სხვა</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-duration">არენდის ხანგრძლივობა *</label>
-                        <select id="rental-duration" name="duration" required>
-                            <option value="">აირჩიეთ არენდის ხანგრძლივობა</option>
-                            <option value="1-7-days">1-7 დღე</option>
-                            <option value="1-4-weeks">1-4 კვირა</option>
-                            <option value="1-6-months">1-6 თვე</option>
-                            <option value="6-12-months">6-12 თვე</option>
-                            <option value="over-12-months">12 თვეზე მეტი</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-start-date">სასურველი დაწყების თარიღი</label>
-                        <input type="date" id="rental-start-date" name="start-date">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-equipment">საჭირო აღჭურვილობა</label>
-                        <textarea id="rental-equipment" name="equipment" rows="4" placeholder="გთხოვთ აღწეროთ საჭირო აღჭურვილობა, მათ შორის რაოდენობა და ნებისმიერი კონკრეტული მოთხოვნები..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">არენდის მოთხოვნის გაგზავნა</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Request Form -->
-    <section class="section" id="service-form">
-        <div class="container">
-            <h2>სერვისისა და მოვლის მოთხოვნა</h2>
-            <div class="contact-form">
-                <form id="serviceForm" class="order-form">
-                    <div class="form-group">
-                        <label for="service-name">სრული სახელი *</label>
-                        <input type="text" id="service-name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-email">ელ-ფოსტის მისამართი *</label>
-                        <input type="email" id="service-email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-phone">ტელეფონის ნომერი *</label>
-                        <input type="tel" id="service-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-company">კომპანია/ორგანიზაცია</label>
-                        <input type="text" id="service-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-type">სერვისის ტიპი *</label>
-                        <select id="service-type" name="service-type" required>
+                        <label for="service-type">რა გჭირდებათ? *</label>
+                        <select id="service-type" name="service-type" required onchange="toggleServiceFields()">
                             <option value="">აირჩიეთ სერვისის ტიპი</option>
-                            <option value="maintenance">რეგულარული მოვლა</option>
-                            <option value="repair">შეკეთების სერვისი</option>
-                            <option value="installation">ინსტალაცია/დაყენება</option>
-                            <option value="calibration">აღჭურვილობის კალიბრაცია</option>
-                            <option value="emergency">საგანგებო სერვისი</option>
-                            <option value="other">სხვა</option>
+                            <option value="purchase">აღჭურვილობის შეძენა</option>
+                            <option value="rental">აღჭურვილობის არენდა</option>
+                            <option value="service">სერვისი და მოვლა</option>
+                            <option value="training">ტრენინგი და კონსულტაცია</option>
                         </select>
                     </div>
                     
+                    <!-- Purchase-specific fields -->
+                    <div id="purchase-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="equipment-type">აღჭურვილობის ტიპი *</label>
+                                <select id="equipment-type" name="equipment-type">
+                                    <option value="">აირჩიეთ აღჭურვილობის ტიპი</option>
+                                    <option value="espresso-machine">ესპრესო მანქანა</option>
+                                    <option value="coffee-grinder">ყავის მფქვავი</option>
+                                    <option value="filter-coffee">ფილტრის ყავის აღჭურვილობა</option>
+                                    <option value="accessories">აქსესუარები და ნაწილები</option>
+                                    <option value="complete-setup">სრული ყავის დაყენება</option>
+                                    <option value="other">სხვა</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">ბიუჯეტის დიაპაზონი</label>
+                                <select id="budget" name="budget">
+                                    <option value="">აირჩიეთ ბიუჯეტის დიაპაზონი</option>
+                                    <option value="under-1000">$1,000-ზე ნაკლები</option>
+                                    <option value="1000-5000">$1,000 - $5,000</option>
+                                    <option value="5000-10000">$5,000 - $10,000</option>
+                                    <option value="10000-25000">$10,000 - $25,000</option>
+                                    <option value="over-25000">$25,000-ზე მეტი</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">შეძენის ვადა</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">აირჩიეთ ვადა</option>
+                                <option value="immediate">მყისიერი (30 დღის განმავლობაში)</option>
+                                <option value="1-3-months">1-3 თვე</option>
+                                <option value="3-6-months">3-6 თვე</option>
+                                <option value="6-12-months">6-12 თვე</option>
+                                <option value="flexible">მოქნილი</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Rental-specific fields -->
+                    <div id="rental-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="rental-purpose">არენდის მიზანი *</label>
+                                <select id="rental-purpose" name="rental-purpose">
+                                    <option value="">აირჩიეთ არენდის მიზანი</option>
+                                    <option value="event">სპეციალური ღონისძიება</option>
+                                    <option value="temporary">დროებითი ბიზნესის დაყენება</option>
+                                    <option value="testing">შეძენამდე ტესტირება</option>
+                                    <option value="backup">სათადარიგო აღჭურვილობა</option>
+                                    <option value="renovation">რენოვაციის დროს</option>
+                                    <option value="other">სხვა</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rental-duration">არენდის ხანგრძლივობა *</label>
+                                <select id="rental-duration" name="rental-duration">
+                                    <option value="">აირჩიეთ არენდის ხანგრძლივობა</option>
+                                    <option value="1-7-days">1-7 დღე</option>
+                                    <option value="1-4-weeks">1-4 კვირა</option>
+                                    <option value="1-6-months">1-6 თვე</option>
+                                    <option value="6-12-months">6-12 თვე</option>
+                                    <option value="over-12-months">12 თვეზე მეტი</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rental-start-date">სასურველი დაწყების თარიღი</label>
+                            <input type="date" id="rental-start-date" name="rental-start-date">
+                        </div>
+                    </div>
+                    
+                    <!-- Service-specific fields -->
+                    <div id="service-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service-category">სერვისის ტიპი *</label>
+                                <select id="service-category" name="service-category">
+                                    <option value="">აირჩიეთ სერვისის ტიპი</option>
+                                    <option value="maintenance">რეგულარული მოვლა</option>
+                                    <option value="repair">შეკეთების სერვისი</option>
+                                    <option value="installation">ინსტალაცია/დაყენება</option>
+                                    <option value="calibration">აღჭურვილობის კალიბრაცია</option>
+                                    <option value="emergency">საგანგებო სერვისი</option>
+                                    <option value="other">სხვა</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgency">საგანგებოების დონე</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="">აირჩიეთ საგანგებოების დონე</option>
+                                    <option value="routine">რეგულარული (1 კვირის განმავლობაში)</option>
+                                    <option value="standard">სტანდარტული (3-5 დღის განმავლობაში)</option>
+                                    <option value="urgent">საგანგებო (1-2 დღის განმავლობაში)</option>
+                                    <option value="emergency">საგანგებო (იმავე დღეს)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Training-specific fields -->
+                    <div id="training-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="training-category">ტრენინგის ტიპი *</label>
+                                <select id="training-category" name="training-category">
+                                    <option value="">აირჩიეთ ტრენინგის ტიპი</option>
+                                    <option value="barista-basic">ბარისტის ძირითადი უნარები</option>
+                                    <option value="barista-advanced">ბარისტის მოწინავე ტექნიკები</option>
+                                    <option value="equipment-operation">აღჭურვილობის მუშაობა</option>
+                                    <option value="maintenance-training">მოვლის ტრენინგი</option>
+                                    <option value="business-consultation">ბიზნესის კონსულტაცია</option>
+                                    <option value="custom">მორგებული ტრენინგის პროგრამა</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="participants">მონაწილეთა რაოდენობა</label>
+                                <input type="number" id="participants" name="participants" min="1" max="20">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="training-location">ტრენინგის ადგილი</label>
+                            <select id="training-location" name="training-location">
+                                <option value="">აირჩიეთ ტრენინგის ადგილი</option>
+                                <option value="our-facility">ჩვენი ტრენინგის ობიექტი</option>
+                                <option value="your-location">თქვენი ადგილი</option>
+                                <option value="online">ონლაინ/ვირტუალური ტრენინგი</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Common fields for all service types -->
                     <div class="form-group">
-                        <label for="service-equipment">აღჭურვილობის დეტალები</label>
-                        <textarea id="service-equipment" name="equipment" rows="4" placeholder="გთხოვთ აღწეროთ თქვენი აღჭურვილობა (ბრენდი, მოდელი, ასაკი) და პრობლემა, რომელსაც განიცდით..."></textarea>
+                        <label for="equipment-details">აღჭურვილობის დეტალები (თუ გამოიყენება)</label>
+                        <textarea id="equipment-details" name="equipment-details" rows="3" placeholder="გთხოვთ აღწეროთ თქვენი აღჭურვილობა (ბრენდი, მოდელი, ასაკი) ან საჭირო აღჭურვილობა..."></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="service-urgency">საგანგებო დონე</label>
-                        <select id="service-urgency" name="urgency">
-                            <option value="">აირჩიეთ საგანგებო დონე</option>
-                            <option value="routine">რეგულარული (1 კვირის განმავლობაში)</option>
-                            <option value="standard">სტანდარტული (3-5 დღის განმავლობაში)</option>
-                            <option value="urgent">საგანგებო (1-2 დღის განმავლობაში)</option>
-                            <option value="emergency">საგანგებო (იმავე დღეს)</option>
-                        </select>
+                        <label for="requirements">კონკრეტული მოთხოვნები</label>
+                        <textarea id="requirements" name="requirements" rows="4" placeholder="გთხოვთ აღწეროთ თქვენი კონკრეტული მოთხოვნები, პრეფერენციები ან სხვა დეტალები..."></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">სერვისის მოთხოვნის გაგზავნა</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Inquiry Form -->
-    <section class="section" id="training-form">
-        <div class="container">
-            <h2>ტრენინგისა და კონსულტაციის მოთხოვნა</h2>
-            <div class="contact-form">
-                <form id="trainingForm" class="order-form">
-                    <div class="form-group">
-                        <label for="training-name">სრული სახელი *</label>
-                        <input type="text" id="training-name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-email">ელ-ფოსტის მისამართი *</label>
-                        <input type="email" id="training-email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-phone">ტელეფონის ნომერი *</label>
-                        <input type="tel" id="training-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-company">კომპანია/ორგანიზაცია</label>
-                        <input type="text" id="training-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-type">ტრენინგის ტიპი *</label>
-                        <select id="training-type" name="training-type" required>
-                            <option value="">აირჩიეთ ტრენინგის ტიპი</option>
-                            <option value="barista-basic">ბარისტის ძირითადი უნარები</option>
-                            <option value="barista-advanced">ბარისტის მოწინავე ტექნიკები</option>
-                            <option value="equipment-operation">აღჭურვილობის მუშაობა</option>
-                            <option value="maintenance-training">მოვლის ტრენინგი</option>
-                            <option value="business-consultation">ბიზნეს კონსულტაცია</option>
-                            <option value="custom">პერსონალური ტრენინგის პროგრამა</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-participants">მონაწილეთა რაოდენობა</label>
-                        <input type="number" id="training-participants" name="participants" min="1" max="20">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-location">ტრენინგის ადგილი</label>
-                        <select id="training-location" name="location">
-                            <option value="">აირჩიეთ ტრენინგის ადგილი</option>
-                            <option value="our-facility">ჩვენი საწვრთნელი ობიექტი</option>
-                            <option value="your-location">თქვენი ლოკაცია</option>
-                            <option value="online">ონლაინ/ვირტუალური ტრენინგი</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-details">კონკრეტული მოთხოვნები</label>
-                        <textarea id="training-details" name="details" rows="4" placeholder="გთხოვთ აღწეროთ თქვენი კონკრეტული ტრენინგის საჭიროებები, უნარების დონეები ან სხვა მოთხოვნები..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">ტრენინგის მოთხოვნის გაგზავნა</button>
+                    <button type="submit" class="submit-btn">ფასის მოთხოვნა</button>
                 </form>
             </div>
         </div>
@@ -370,7 +307,7 @@
                 <h2>საჭიროებთ მყისიერ დახმარებას?</h2>
                 <p>საგანგებო მოთხოვნებისთვის ან მყისიერი მხარდაჭერისთვის, არ უნდა ყოფილდეთ უკან დახევა დაგვიკავშირდით პირდაპირ. ჩვენი გუნდი მზად არის დაგეხმაროთ ახლავე.</p>
                 <div style="margin-top: 2rem;">
-                    <a href="tel:+995321234567" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0 1rem;">დარეკეთ ახლა: +995 32 123 4567</a>
+                    <a href="tel:+995558334455" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0 1rem;">დარეკეთ ახლა: +995 558 33 44 55</a>
                     <a href="contact.html" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0 1rem; background-color: var(--bright-yellow); color: var(--dark-green);">დაგვიკავშირდით</a>
                 </div>
             </div>
@@ -383,8 +320,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>საკონტაქტო ინფორმაცია</h3>
-                    <p>ელ-ფოსტა: info@filicorizecchini.ge</p>
-                    <p>ტელეფონი: +995 32 123 4567</p>
+                    <p>ელ-ფოსტა: hello@filicorizecchini.ge</p>
+                    <p>ტელეფონი: +995 558 33 44 55</p>
                     <p>მისამართი: თბილისი, საქართველო</p>
                 </div>
                 <div class="footer-section">
@@ -407,5 +344,42 @@
     </footer>
 
     <script src="../script.js"></script>
+    
+    <script>
+        function toggleServiceFields() {
+            const serviceType = document.getElementById('service-type').value;
+            const allFields = document.querySelectorAll('.service-fields');
+            
+            // Hide all service-specific fields first
+            allFields.forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Show fields based on selected service type
+            if (serviceType === 'purchase') {
+                document.getElementById('purchase-fields').style.display = 'block';
+            } else if (serviceType === 'rental') {
+                document.getElementById('rental-fields').style.display = 'block';
+            } else if (serviceType === 'service') {
+                document.getElementById('service-fields').style.display = 'block';
+            } else if (serviceType === 'training') {
+                document.getElementById('training-fields').style.display = 'block';
+            }
+        }
+        
+        // Auto-select service type based on URL hash
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash.includes('universal-form')) {
+                // Extract service parameter from hash
+                const serviceMatch = hash.match(/service=([^&]+)/);
+                if (serviceMatch) {
+                    const service = serviceMatch[1];
+                    document.getElementById('service-type').value = service;
+                    toggleServiceFields();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

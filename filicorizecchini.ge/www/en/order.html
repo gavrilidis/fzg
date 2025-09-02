@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order & Quote Request - Filicori Zecchini Georgia</title>
     <meta name="description" content="Order coffee equipment, request rental quotes, or get service quotes. Receive personalized pricing and expert consultation for your coffee business needs">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +15,9 @@
     <!-- Header Section -->
     <header class="header">
         <nav class="nav container">
-            <a href="home.html" class="logo">Filicori Zecchini</a>
+            <a href="home.html" class="logo">
+                <img src="../logo.png" alt="Filicori Zecchini" class="logo-img">
+            </a>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -42,14 +45,14 @@
     <section class="section" id="order-types">
         <div class="container">
             <h2>What Would You Like to Order?</h2>
-            <div class="cards-grid">
+            <div class="cards-grid cards-grid-4">
                 <div class="card">
                     <div class="card-image">
                         <span>Equipment<br>300x300</span>
                     </div>
                     <h3>Equipment Purchase</h3>
                     <p>Purchase coffee machines, grinders, and accessories for your business or home. We offer competitive pricing and comprehensive support.</p>
-                    <a href="#purchase-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Purchase Quote</a>
+                    <a href="#universal-form?service=purchase" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Purchase Quote</a>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -57,7 +60,7 @@
                     </div>
                     <h3>Equipment Rental</h3>
                     <p>Flexible rental options for events, temporary needs, or testing. Professional installation, maintenance, and support included.</p>
-                    <a href="#rental-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Rental Quote</a>
+                    <a href="#universal-form?service=rental" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Rental Quote</a>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -65,7 +68,7 @@
                     </div>
                     <h3>Service & Maintenance</h3>
                     <p>Professional maintenance, repair, and technical support for your existing coffee equipment. Emergency service available.</p>
-                    <a href="#service-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Service Quote</a>
+                    <a href="#universal-form?service=service" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Service Quote</a>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -73,274 +76,208 @@
                     </div>
                     <h3>Training & Consultation</h3>
                     <p>Barista training, equipment consultation, and business development services to maximize your coffee operation.</p>
-                    <a href="#training-form" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Training Quote</a>
+                    <a href="#universal-form?service=training" class="submit-btn" style="display: inline-block; text-decoration: none; margin-top: 1rem;">Request Training Quote</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Purchase Equipment Form -->
-    <section class="section" id="purchase-form">
+    <!-- Universal Quote Request Form -->
+    <section class="section" id="universal-form">
         <div class="container">
-            <h2>Equipment Purchase - Quote Request</h2>
+            <h2>Request a Quote</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--gray-olive);">Tell us what you need and we'll provide you with a personalized quote</p>
+            
             <div class="contact-form">
-                <form id="purchaseForm" class="order-form">
-                    <div class="form-group">
-                        <label for="purchase-name">Full Name *</label>
-                        <input type="text" id="purchase-name" name="name" required>
+                <form id="universalForm" class="order-form">
+                    <!-- Basic Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="purchase-email">Email Address *</label>
-                        <input type="email" id="purchase-email" name="email" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
+                        </div>
                     </div>
                     
+                    <!-- Service Type Selection -->
                     <div class="form-group">
-                        <label for="purchase-phone">Phone Number *</label>
-                        <input type="tel" id="purchase-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-company">Company/Organization</label>
-                        <input type="text" id="purchase-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-equipment">Equipment Type *</label>
-                        <select id="purchase-equipment" name="equipment" required>
-                            <option value="">Select equipment type</option>
-                            <option value="espresso-machine">Espresso Machine</option>
-                            <option value="coffee-grinder">Coffee Grinder</option>
-                            <option value="filter-coffee">Filter Coffee Equipment</option>
-                            <option value="accessories">Accessories & Parts</option>
-                            <option value="complete-setup">Complete Coffee Setup</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-budget">Budget Range</label>
-                        <select id="purchase-budget" name="budget">
-                            <option value="">Select budget range</option>
-                            <option value="under-1000">Under $1,000</option>
-                            <option value="1000-5000">$1,000 - $5,000</option>
-                            <option value="5000-10000">$5,000 - $10,000</option>
-                            <option value="10000-25000">$10,000 - $25,000</option>
-                            <option value="over-25000">Over $25,000</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-timeline">Purchase Timeline</label>
-                        <select id="purchase-timeline" name="timeline">
-                            <option value="">Select timeline</option>
-                            <option value="immediate">Immediate (within 30 days)</option>
-                            <option value="1-3-months">1-3 months</option>
-                            <option value="3-6-months">3-6 months</option>
-                            <option value="6-12-months">6-12 months</option>
-                            <option value="flexible">Flexible</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="purchase-details">Specific Requirements</label>
-                        <textarea id="purchase-details" name="details" rows="4" placeholder="Please describe your specific requirements, preferred brands, features, or any other details..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Request Purchase Quote</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rental Inquiry Form -->
-    <section class="section" id="rental-form">
-        <div class="container">
-            <h2>Equipment Rental - Quote Request</h2>
-            <div class="contact-form">
-                <form id="rentalForm" class="order-form">
-                    <div class="form-group">
-                        <label for="rental-name">Full Name *</label>
-                        <input type="text" id="rental-name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-email">Email Address *</label>
-                        <input type="email" id="rental-email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-phone">Phone Number *</label>
-                        <input type="tel" id="rental-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-company">Company/Organization</label>
-                        <input type="text" id="rental-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-purpose">Rental Purpose *</label>
-                        <select id="rental-purpose" name="purpose" required>
-                            <option value="">Select rental purpose</option>
-                            <option value="event">Special Event</option>
-                            <option value="temporary">Temporary Business Setup</option>
-                            <option value="testing">Testing Before Purchase</option>
-                            <option value="backup">Backup Equipment</option>
-                            <option value="renovation">During Renovation</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-duration">Rental Duration *</label>
-                        <select id="rental-duration" name="duration" required>
-                            <option value="">Select rental duration</option>
-                            <option value="1-7-days">1-7 days</option>
-                            <option value="1-4-weeks">1-4 weeks</option>
-                            <option value="1-6-months">1-6 months</option>
-                            <option value="6-12-months">6-12 months</option>
-                            <option value="over-12-months">Over 12 months</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-start-date">Desired Start Date</label>
-                        <input type="date" id="rental-start-date" name="start-date">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rental-equipment">Required Equipment</label>
-                        <textarea id="rental-equipment" name="equipment" rows="4" placeholder="Please describe the equipment you need, including quantities and any specific requirements..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Request Rental Quote</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Request Form -->
-    <section class="section" id="service-form">
-        <div class="container">
-            <h2>Service & Maintenance - Quote Request</h2>
-            <div class="contact-form">
-                <form id="serviceForm" class="order-form">
-                    <div class="form-group">
-                        <label for="service-name">Full Name *</label>
-                        <input type="text" id="service-name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-email">Email Address *</label>
-                        <input type="email" id="service-email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-phone">Phone Number *</label>
-                        <input type="tel" id="service-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-company">Company/Organization</label>
-                        <input type="text" id="service-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service-type">Service Type *</label>
-                        <select id="service-type" name="service-type" required>
+                        <label for="service-type">What do you need? *</label>
+                        <select id="service-type" name="service-type" required onchange="toggleServiceFields()">
                             <option value="">Select service type</option>
-                            <option value="maintenance">Regular Maintenance</option>
-                            <option value="repair">Repair Service</option>
-                            <option value="installation">Installation/Setup</option>
-                            <option value="calibration">Equipment Calibration</option>
-                            <option value="emergency">Emergency Service</option>
-                            <option value="other">Other</option>
+                            <option value="purchase">Equipment Purchase</option>
+                            <option value="rental">Equipment Rental</option>
+                            <option value="service">Service & Maintenance</option>
+                            <option value="training">Training & Consultation</option>
                         </select>
                     </div>
                     
+                    <!-- Purchase-specific fields -->
+                    <div id="purchase-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="equipment-type">Equipment Type *</label>
+                                <select id="equipment-type" name="equipment-type">
+                                    <option value="">Select equipment type</option>
+                                    <option value="espresso-machine">Espresso Machine</option>
+                                    <option value="coffee-grinder">Coffee Grinder</option>
+                                    <option value="filter-coffee">Filter Coffee Equipment</option>
+                                    <option value="accessories">Accessories & Parts</option>
+                                    <option value="complete-setup">Complete Coffee Setup</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget Range</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-1000">Under $1,000</option>
+                                    <option value="1000-5000">$1,000 - $5,000</option>
+                                    <option value="5000-10000">$5,000 - $10,000</option>
+                                    <option value="10000-25000">$10,000 - $25,000</option>
+                                    <option value="over-25000">Over $25,000</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Purchase Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="immediate">Immediate (within 30 days)</option>
+                                <option value="1-3-months">1-3 months</option>
+                                <option value="3-6-months">3-6 months</option>
+                                <option value="6-12-months">6-12 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Rental-specific fields -->
+                    <div id="rental-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="rental-purpose">Rental Purpose *</label>
+                                <select id="rental-purpose" name="rental-purpose">
+                                    <option value="">Select rental purpose</option>
+                                    <option value="event">Special Event</option>
+                                    <option value="temporary">Temporary Business Setup</option>
+                                    <option value="testing">Testing Before Purchase</option>
+                                    <option value="backup">Backup Equipment</option>
+                                    <option value="renovation">During Renovation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rental-duration">Rental Duration *</label>
+                                <select id="rental-duration" name="rental-duration">
+                                    <option value="">Select rental duration</option>
+                                    <option value="1-7-days">1-7 days</option>
+                                    <option value="1-4-weeks">1-4 weeks</option>
+                                    <option value="1-6-months">1-6 months</option>
+                                    <option value="6-12-months">6-12 months</option>
+                                    <option value="over-12-months">Over 12 months</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rental-start-date">Desired Start Date</label>
+                            <input type="date" id="rental-start-date" name="rental-start-date">
+                        </div>
+                    </div>
+                    
+                    <!-- Service-specific fields -->
+                    <div id="service-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service-category">Service Type *</label>
+                                <select id="service-category" name="service-category">
+                                    <option value="">Select service type</option>
+                                    <option value="maintenance">Regular Maintenance</option>
+                                    <option value="repair">Repair Service</option>
+                                    <option value="installation">Installation/Setup</option>
+                                    <option value="calibration">Equipment Calibration</option>
+                                    <option value="emergency">Emergency Service</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgency">Urgency Level</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="">Select urgency level</option>
+                                    <option value="routine">Routine (within 1 week)</option>
+                                    <option value="standard">Standard (within 3-5 days)</option>
+                                    <option value="urgent">Urgent (within 1-2 days)</option>
+                                    <option value="emergency">Emergency (same day)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Training-specific fields -->
+                    <div id="training-fields" class="service-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="training-category">Training Type *</label>
+                                <select id="training-category" name="training-category">
+                                    <option value="">Select training type</option>
+                                    <option value="barista-basic">Basic Barista Skills</option>
+                                    <option value="barista-advanced">Advanced Barista Techniques</option>
+                                    <option value="equipment-operation">Equipment Operation</option>
+                                    <option value="maintenance-training">Maintenance Training</option>
+                                    <option value="business-consultation">Business Consultation</option>
+                                    <option value="custom">Custom Training Program</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="participants">Number of Participants</label>
+                                <input type="number" id="participants" name="participants" min="1" max="20">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="training-location">Training Location</label>
+                            <select id="training-location" name="training-location">
+                                <option value="">Select training location</option>
+                                <option value="our-facility">Our Training Facility</option>
+                                <option value="your-location">Your Location</option>
+                                <option value="online">Online/Virtual Training</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Common fields for all service types -->
                     <div class="form-group">
-                        <label for="service-equipment">Equipment Details</label>
-                        <textarea id="service-equipment" name="equipment" rows="4" placeholder="Please describe your equipment (brand, model, age) and the issue you're experiencing..."></textarea>
+                        <label for="equipment-details">Equipment Details (if applicable)</label>
+                        <textarea id="equipment-details" name="equipment-details" rows="3" placeholder="Please describe your equipment (brand, model, age) or the equipment you need..."></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="service-urgency">Urgency Level</label>
-                        <select id="service-urgency" name="urgency">
-                            <option value="">Select urgency level</option>
-                            <option value="routine">Routine (within 1 week)</option>
-                            <option value="standard">Standard (within 3-5 days)</option>
-                            <option value="urgent">Urgent (within 1-2 days)</option>
-                            <option value="emergency">Emergency (same day)</option>
-                        </select>
+                        <label for="requirements">Specific Requirements</label>
+                        <textarea id="requirements" name="requirements" rows="4" placeholder="Please describe your specific requirements, preferences, or any other details..."></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Request Service Quote</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Inquiry Form -->
-    <section class="section" id="training-form">
-        <div class="container">
-            <h2>Training & Consultation - Quote Request</h2>
-            <div class="contact-form">
-                <form id="trainingForm" class="order-form">
-                    <div class="form-group">
-                        <label for="training-name">Full Name *</label>
-                        <input type="text" id="training-name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-email">Email Address *</label>
-                        <input type="email" id="training-email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-phone">Phone Number *</label>
-                        <input type="tel" id="training-phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-company">Company/Organization</label>
-                        <input type="text" id="training-company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-type">Training Type *</label>
-                        <select id="training-type" name="training-type" required>
-                            <option value="">Select training type</option>
-                            <option value="barista-basic">Basic Barista Skills</option>
-                            <option value="barista-advanced">Advanced Barista Techniques</option>
-                            <option value="equipment-operation">Equipment Operation</option>
-                            <option value="maintenance-training">Maintenance Training</option>
-                            <option value="business-consultation">Business Consultation</option>
-                            <option value="custom">Custom Training Program</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-participants">Number of Participants</label>
-                        <input type="number" id="training-participants" name="participants" min="1" max="20">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-location">Training Location</label>
-                        <select id="training-location" name="location">
-                            <option value="">Select training location</option>
-                            <option value="our-facility">Our Training Facility</option>
-                            <option value="your-location">Your Location</option>
-                            <option value="online">Online/Virtual Training</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="training-details">Specific Requirements</label>
-                        <textarea id="training-details" name="details" rows="4" placeholder="Please describe your specific training needs, skill levels, or any other requirements..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Request Training Quote</button>
+                    <button type="submit" class="submit-btn">Request Quote</button>
                 </form>
             </div>
         </div>
@@ -370,7 +307,7 @@
                 <h2>Need Immediate Assistance?</h2>
                 <p>For urgent requests or immediate support, don't hesitate to contact us directly. Our team is ready to help you right now.</p>
                 <div style="margin-top: 2rem;">
-                    <a href="tel:+995321234567" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0 1rem;">Call Us Now: +995 32 123 4567</a>
+                    <a href="tel:+995558334455" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0 1rem;">Call Us Now: +995 558 33 44 55</a>
                     <a href="contact.html" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0 1rem; background-color: var(--bright-yellow); color: var(--dark-green);">Get in Touch</a>
                 </div>
             </div>
@@ -383,8 +320,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Contact Information</h3>
-                    <p>Email: info@filicorizecchini.ge</p>
-                    <p>Phone: +995 32 123 4567</p>
+                    <p>Email: hello@filicorizecchini.ge</p>
+                    <p>Phone: +995 558 33 44 55</p>
                     <p>Address: Tbilisi, Georgia</p>
                 </div>
                 <div class="footer-section">
@@ -407,5 +344,42 @@
     </footer>
 
     <script src="../script.js"></script>
+    
+    <script>
+        function toggleServiceFields() {
+            const serviceType = document.getElementById('service-type').value;
+            const allFields = document.querySelectorAll('.service-fields');
+            
+            // Hide all service-specific fields first
+            allFields.forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Show fields based on selected service type
+            if (serviceType === 'purchase') {
+                document.getElementById('purchase-fields').style.display = 'block';
+            } else if (serviceType === 'rental') {
+                document.getElementById('rental-fields').style.display = 'block';
+            } else if (serviceType === 'service') {
+                document.getElementById('service-fields').style.display = 'block';
+            } else if (serviceType === 'training') {
+                document.getElementById('training-fields').style.display = 'block';
+            }
+        }
+        
+        // Auto-select service type based on URL hash
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash.includes('universal-form')) {
+                // Extract service parameter from hash
+                const serviceMatch = hash.match(/service=([^&]+)/);
+                if (serviceMatch) {
+                    const service = serviceMatch[1];
+                    document.getElementById('service-type').value = service;
+                    toggleServiceFields();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
