@@ -91,6 +91,7 @@ p {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 .logo-img {
@@ -102,6 +103,7 @@ p {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0 auto;
 }
 
 .nav-links a {
@@ -124,6 +126,7 @@ p {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .language-switch:hover {
@@ -205,11 +208,6 @@ p {
     margin: 3rem 0;
 }
 
-/* Special case for 3 cards - they will naturally fit in one row */
-.cards-grid:has(.card:nth-child(3):last-child) {
-    grid-template-columns: repeat(3, 1fr);
-}
-
 /* Alternative approach for better browser support */
 .cards-grid-3 {
     grid-template-columns: repeat(3, 1fr);
@@ -220,12 +218,10 @@ p {
 }
 
 @media (max-width: 768px) {
+    .cards-grid,
+    .cards-grid-3,
     .cards-grid-4 {
-        grid-template-columns: 1fr;
-    }
-    
-    .cards-grid-3 {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 }
 
@@ -421,8 +417,14 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav {
+        gap: 1rem;
+        padding: 1rem 1rem;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
+        order: 3;
     }
     
     .nav-links {
@@ -439,6 +441,7 @@ p {
         padding-top: 2rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         z-index: 99;
+        margin: 0;
     }
     
     .nav-links.active {
@@ -458,7 +461,7 @@ p {
     }
     
     .language-switch {
-        margin-top: 1rem;
+        order: 2;
     }
     
     /* Hide language switch when mobile menu is open */
@@ -484,6 +487,10 @@ p {
         height: 250px;
     }
     
+    .card {
+        padding: 1.5rem;
+    }
+    
     .section {
         padding: 2rem 0;
     }
@@ -492,6 +499,24 @@ p {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+    
+    .nav {
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .language-switch {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
     }
     
     .banner h1 {

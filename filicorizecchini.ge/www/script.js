@@ -1,6 +1,28 @@
 // Filicori Zecchini - Main JavaScript
 // Language switching functionality
 
+// Mobile menu toggle function
+function toggleMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        navLinks.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+    }
+}
+
+// Close mobile menu when clicking on a link
+function closeMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Language switching functionality
     const languageSwitch = document.querySelector('.language-switch');
@@ -86,16 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Mobile menu toggle (if needed)
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuToggle && navLinks) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-    }
 });
 
 // Utility function to get current language
@@ -136,26 +148,4 @@ function getText(key) {
     };
     
     return translations[currentLang][key] || key;
-}
-
-// Mobile menu toggle function
-function toggleMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuToggle && navLinks) {
-        navLinks.classList.toggle('active');
-        mobileMenuToggle.classList.toggle('active');
-    }
-}
-
-// Close mobile menu when clicking on a link
-function closeMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuToggle && navLinks) {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-    }
 }
