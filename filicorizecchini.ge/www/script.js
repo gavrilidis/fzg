@@ -1,6 +1,49 @@
 // Filicori Zecchini - Main JavaScript
 // Language switching functionality
 
+// Environment detection
+function isProductionEnvironment() {
+    // Проверяем различные способы определения production окружения
+    return (
+        window.location.hostname !== 'localhost' &&
+        window.location.hostname !== '127.0.0.1' &&
+        !window.location.hostname.includes('localhost') &&
+        !window.location.hostname.includes('127.0.0.1') &&
+        window.location.protocol !== 'file:' &&
+        !window.location.hostname.includes('dev') &&
+        !window.location.hostname.includes('test')
+    );
+}
+
+// Conditional navigation visibility
+function initializeConditionalNavigation() {
+    const isProduction = isProductionEnvironment();
+    
+    // Находим все элементы с классом hidden-in-production
+    const hiddenElements = document.querySelectorAll('.hidden-in-production');
+    
+    if (isProduction) {
+        // В production скрываем элементы
+        hiddenElements.forEach(element => {
+            element.style.display = 'none';
+        });
+        
+        // Логируем для отладки
+        console.log('Production mode: Hidden navigation elements:', hiddenElements.length);
+    } else {
+        // В development показываем все элементы
+        hiddenElements.forEach(element => {
+            element.style.display = '';
+        });
+        
+        // Логируем для отладки
+        console.log('Development mode: All navigation elements visible');
+    }
+    
+    // Добавляем индикатор окружения в консоль
+    console.log('Environment:', isProduction ? 'PRODUCTION' : 'DEVELOPMENT');
+}
+
 // Mobile menu toggle function
 function toggleMobileMenu() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -24,6 +67,9 @@ function closeMobileMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Инициализируем условную навигацию
+    initializeConditionalNavigation();
+    
     // Language switching functionality
     const languageSwitch = document.querySelector('.language-switch');
     

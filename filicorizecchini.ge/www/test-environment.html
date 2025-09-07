@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Test - Filicori Zecchini</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="en/home.html" class="logo">
+                <img src="logo.png" alt="Filicori Zecchini" class="logo-img">
+            </a>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="en/home.html" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="en/about.html" onclick="closeMobileMenu()">About Us</a></li>
+                <li class="hidden-in-production"><a href="en/products.html" onclick="closeMobileMenu()">Products</a></li>
+                <li class="hidden-in-production"><a href="en/rental.html" onclick="closeMobileMenu()">Machine Rental</a></li>
+                <li class="hidden-in-production"><a href="en/contact.html" onclick="closeMobileMenu()">Contact</a></li>
+                <li class="hidden-in-production"><a href="en/order.html" onclick="closeMobileMenu()">Order</a></li>
+            </ul>
+            <button class="language-switch" onclick="window.location.href='/ka/home'">Switch to Georgian</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <div class="container">
+                <h1>Environment Test Page</h1>
+                <p>This page helps you test the conditional navigation functionality.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 2rem 0;">
+            <div class="card">
+                <h2>Environment Detection Test</h2>
+                <p>Open the browser console (F12) to see the environment detection results.</p>
+                <p>Elements with class "hidden-in-production" should be:</p>
+                <ul>
+                    <li><strong>Visible</strong> when running on localhost or file:// protocol</li>
+                    <li><strong>Hidden</strong> when running on a production domain</li>
+                </ul>
+                
+                <h3>Test Navigation Links:</h3>
+                <ul>
+                    <li>✅ Home - Always visible</li>
+                    <li>✅ About Us - Always visible</li>
+                    <li>🔒 Products - Hidden in production</li>
+                    <li>🔒 Machine Rental - Hidden in production</li>
+                    <li>🔒 Contact - Hidden in production</li>
+                    <li>🔒 Order - Hidden in production</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -17,6 +17,13 @@
     box-sizing: border-box;
 }
 
+/* Conditional visibility for production environment */
+.hidden-in-production {
+    /* Этот класс будет управляться JavaScript */
+    /* В development режиме элементы остаются видимыми */
+    /* В production режиме JavaScript устанавливает display: none */
+}
+
 body {
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -249,6 +256,7 @@ p {
     justify-content: center;
     color: var(--white);
     font-weight: 600;
+    object-fit: cover;
 }
 
 .card h3 {
@@ -274,6 +282,7 @@ p {
     justify-content: center;
     color: var(--white);
     font-weight: 600;
+    object-fit: cover;
 }
 
 /* Features List */
@@ -479,12 +488,39 @@ p {
     
     .about-image {
         width: 100%;
-        height: 300px;
+        height: 0;
+        padding-bottom: 66.67%; /* Соотношение 3:2 (400/600 = 0.6667) */
+        position: relative;
+        margin: 0 auto;
+    }
+    
+    .about-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
     }
     
     .card-image {
         width: 100%;
-        height: 250px;
+        max-width: 300px;
+        height: 0;
+        padding-bottom: 100%; /* Это создает квадратное соотношение 1:1 */
+        position: relative;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .card-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
     }
     
     .card {
@@ -517,6 +553,10 @@ p {
     .language-switch {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
+    }
+    
+    .card-image {
+        max-width: 250px;
     }
     
     .banner h1 {
